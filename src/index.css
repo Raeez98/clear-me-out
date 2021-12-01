@@ -1,13 +1,69 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing:border-box;
+}
+html,body,#root{
+  height:100%;
+}
+.App{
+  background-color: #E5E5E5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header{
+ 
+  background-color: white;
+  box-shadow: 8px 4px 4px 4px rgba(79,79,79,0.15);
+  /* padding:20px 0; */
 }
+.container{
+  max-width:1200px;
+  padding:0 10px; 
+  margin:auto;
+}
+header .container{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap:20px;
+  align-items: center;
+  height:60px;
+}
+.signup-button,.login-button{
+  padding:8px 20px;
+  border-radius:10px;
+  background-color: #0080a8;
+  color:white;
+  
+}
+.login-button{
+  background-color: unset;
+  color:#0080a8;
+}
+.page-section{
+  /* background-color:#E5E5E5; */
+  height:90%;
+  /* color:black; */
+}
+.category-container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding:30px 0;
+  gap:30px;
+
+}
+p{
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+}
+.category-card img{
+  width:100%;
+}
+.details-section{
+  background-color: white;
+  padding:15px;
+
+}
+
+
+

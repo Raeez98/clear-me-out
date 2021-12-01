@@ -10,6 +10,7 @@ import Signup from './Routes/Signup';
 import Ask from './Routes/Ask';
 import Post from './Routes/Post';
 import Feedback from './Routes/Feedback';
+import Layout from "./Layout";
 
 // Home page //Category Page //Question page
 
@@ -25,11 +26,8 @@ import Feedback from './Routes/Feedback';
 
 function App() {
   return (
-    <div className="App">
-      <header>
-      <h1>Header</h1>
-      </header>
-      <Routes>
+     <Routes>
+        <Route path="" element={<Layout/>}>
         <Route path="/" element={<Home/>}/>
         <Route path="category" element={<Category/>}/>
         <Route path="question" element={<Question/>}/>
@@ -38,11 +36,12 @@ function App() {
         <Route path="ask" element={<Ask/>}/>
         <Route path="post" element={<Post/>}/>
         <Route path="feedback" element={<Feedback/>}/>
+        </Route>
     
         
 
       </Routes>
-    </div>
+    
   );
 }
 
