@@ -20,8 +20,11 @@ const Layout = () => {
                
                  
             </header>
+           <div className="body-conatiner">
             <Outlet/>
-        </div>
+            </div>
+            </div>
+        
     )
 }
 
