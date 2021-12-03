@@ -59,6 +59,7 @@ header .container{
   gap:35px;
 
 }
+
 p{
   display: -webkit-box;
   -webkit-line-clamp:2;
