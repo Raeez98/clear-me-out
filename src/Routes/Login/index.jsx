@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import InputField from '../../Components/InputField';
 import "../Signup/signup.css"
 
-const Signup = () => {
+const Login = () => {
     const[formData,setFormData]=useState({
         fullName: "",
         email: "",
@@ -21,7 +21,7 @@ const Signup = () => {
     return (
         <div className="signupcontainer-page">
           <div className="sign-up-contanier">
-            <div className="signing-title">Sign Up</div>
+            <div className="signing-title">Login</div>
             <form>
             
                     <InputField
@@ -46,4 +46,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Login
