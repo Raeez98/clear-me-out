@@ -39,7 +39,7 @@
     padding:5px;
     transition: 0.3s ease-in-out;
 }
-.inputform input:focus + .inputfield{
+.inputform input:focus + .inputfield,.filled-inputfield{
     top:0;
     font-size: 14px;
     left:5px;
@@ -54,4 +54,9 @@
     font-size: 32px;
     margin: 15px auto;
 
+}
+.text-field-error-text{
+    color:red;
+    position: absolute;
+    top:calc(100% + 5px);
 }

@@ -1,19 +1,49 @@
-import React from 'react'
-import "./login.css"
+import React, { useState } from 'react'
+import InputField from '../../Components/InputField';
+import "../Signup/signup.css"
 
-
-const Login = () => {
+const Signup = () => {
+    const[formData,setFormData]=useState({
+        fullName: "",
+        email: "",
+        password: "",
+        confirmpassword: ""
+   });
+  
+   const{fullName,email,password,confirmpassword}=formData;
+     const onChange=(key,value)=>
+     {
+        setFormData({
+            ...formData,
+           [key]:value
+        })
+     }
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="signupcontainer-page">
+          <div className="sign-up-contanier">
+            <div className="signing-title">Sign Up</div>
             <form>
-                <input type ="text"  placeholder="Email" /><br/>
-                <input type ="text"  placeholder="password" /><br/>
-               <input type="submit" value="Submt"/>
-               </form>
-
+            
+                    <InputField
+                    value={email}
+                    onChange={(value)=>
+                        onChange("email",value)
+                        }
+                        label="Email"/>
+                          <InputField
+                    value={password}
+                    onChange={(value)=>
+                        onChange("password",value)
+                        }
+                        label="Password"
+                        type="password"
+                    />
+                    
+                <button className="signing-button">Sign Up</button>
+            </form>
         </div>
+    </div>
     )
 }
 
-export default Login
+export default Signup
