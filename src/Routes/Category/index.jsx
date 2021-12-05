@@ -80,22 +80,15 @@ const Category = () => {
                              <div className="number">315</div>
                              <div className="answers">Views</div>
                         </div>
-                        </div>
-                        
-                        
-                        
                     </div>
                         
                         
                         
+            </div>
                         
-                        
-                       
-                       
-                    </div>
+        </div>
                     
-                        
-                </div>
+    </div>
             
                         
                    
