@@ -43,12 +43,18 @@ const Login = () => {
         }else{
             onError("emailError","");
         }
+       
         if(!password){
             onError("passwordError","Password Cannot be empty");
-        }else{
-            onError("passwordError","");
         }
-    
+        else{
+            if(password.length<=8){
+                onError("passwordError","Password must contain 8 characters");
+            }
+            else{
+           onError("passwordError","");
+            }
+        }
     }   
    
     return (
@@ -75,7 +81,7 @@ const Login = () => {
                         error={passwordError}
                     />
                     
-                <button className="signing-button">Sign Up</button>
+                <button className="signing-button">Login</button>
             </form>
         </div>
     </div>

@@ -47,12 +47,17 @@ const Signup = () => {
                  onError("fullNameError","");
             }
         }
-        if(!password){
+            if(!password){
             onError("passwordError","Password Cannot be empty");
         }else{
+            if(password.length<=8){
+                onError("passwordError","must contains 8 charcters");
+            }
+            else{
             onError("passwordError","");
+            }
         }
-        if(!confirmPassword){
+            if(!confirmPassword){
             onError("confirmPasswordError","Password Cannot be empty");
         }else{
             if(password !==confirmPassword){
@@ -63,7 +68,7 @@ const Signup = () => {
             }
         }
         
-        if(!isvalidEmail(email)){
+            if(!isvalidEmail(email)){
             onError("emailError","Enter valid email")
         }else{
             onError("emailError","");
