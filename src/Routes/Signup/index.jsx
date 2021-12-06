@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import InputField from '../../Components/InputField';
 import { isvalidEmail } from '../../Utility/validation';
+import {useEffect } from 'react';
 import "./signup.css"
 
 const Signup = () => {
@@ -16,16 +17,21 @@ const Signup = () => {
     passwordError: "",
     confirmPasswordError: ""
 });
+const[isFormSubmitted,setIsFormSubmitted]=useState(false)
 
-  
+   useEffect(()=>{
+       formValidate();
+   },[formData])
+   
    const{fullName,email,password,confirmPassword}=formData;
    const{fullNameError,emailError,passwordError,confirmPasswordError}=formErrorData;
      const onChange=(key,value)=>
      {
-        setFormData({
-            ...formData,
+        setFormData(prev=>({
+            ...prev,
            [key]:value
-        })
+        }))
+        
      }
      const onError=(key,value)=>
      {
@@ -35,10 +41,11 @@ const Signup = () => {
         }
         })
      }
-     const signUpCall=(e)=>{
-         e.preventDefault();
-         if(!fullName){
+     const formValidate=()=>{
+       let  isValidform=true;
+        if(!fullName){
             onError("fullNameError","Provide Your Full Name");
+            isValidform=false;
         }else{
             if(fullName.length<=3){
                 onError("fullNameError","Enter valid Name");
@@ -49,8 +56,9 @@ const Signup = () => {
         }
             if(!password){
             onError("passwordError","Password Cannot be empty");
+            isValidform=false;
         }else{
-            if(password.length<=8){
+            if(password.length !==8){
                 onError("passwordError","must contains 8 charcters");
             }
             else{
@@ -58,10 +66,11 @@ const Signup = () => {
             }
         }
             if(!confirmPassword){
-            onError("confirmPasswordError","Password Cannot be empty");
+            onError("confirmPasswordError","Confirm Your Password");
+            isValidform=false;
         }else{
             if(password !==confirmPassword){
-                onError("confirmPasswordError","Password Miss Match");
+               
             }
             else{
                 onError("confirmPasswordError","");
@@ -70,16 +79,22 @@ const Signup = () => {
         
             if(!isvalidEmail(email)){
             onError("emailError","Enter valid email")
+            isValidform=false;
         }else{
             onError("emailError","");
         }
+        return isValidform
+     }
+    const signUpCall=(e)=>{
+         e.preventDefault();
+       setIsFormSubmitted(true);
+       if(formValidate()){
+           console.log("signup success");
+       }
         
     }
    
-         
-         
-
-    return (
+     return (
         <div className="signupcontainer-page">
           <div className="sign-up-contanier">
             <div className="signing-title">Sign Up</div>
@@ -91,6 +106,7 @@ const Signup = () => {
                         }
                         label="Full Name"
                         error={fullNameError}
+                        isFormSubmitted={isFormSubmitted}
                     /> 
                     <InputField
                     value={email}
@@ -99,6 +115,7 @@ const Signup = () => {
                         }
                         label="Email"
                         error={emailError}
+                        isFormSubmitted={isFormSubmitted}
                         />
                           <InputField
                     value={password}
@@ -108,6 +125,7 @@ const Signup = () => {
                         label="Password"
                         type="password"
                         error={passwordError}
+                        isFormSubmitted={isFormSubmitted}
 
                         />
                           <InputField
@@ -117,7 +135,8 @@ const Signup = () => {
                         }
                         label="Confirm Password"
                         type="password"
-                        error={confirmPasswordError}/>
+                        error={confirmPasswordError}
+                        isFormSubmitted={isFormSubmitted}/>
                     
                     
                 <button className="signing-button" type="submit">Sign Up</button>
