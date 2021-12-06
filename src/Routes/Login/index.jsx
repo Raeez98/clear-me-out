@@ -1,16 +1,26 @@
 import React, { useState } from 'react'
 import InputField from '../../Components/InputField';
+import {isvalidEmail } from '../../Utility/validation';
 import "../Signup/signup.css"
+
 
 const Login = () => {
     const[formData,setFormData]=useState({
-        fullName: "",
+       
         email: "",
         password: "",
-        confirmpassword: ""
+        
    });
+   const[formErrorData,setFormErrorData]=useState({
+   
+    emailError: "",
+    passwordError: "",
   
-   const{fullName,email,password,confirmpassword}=formData;
+});
+
+      const{email,password}=formData;
+     const{emailError,passwordError}=formErrorData;
+  
      const onChange=(key,value)=>
      {
         setFormData({
@@ -18,18 +28,43 @@ const Login = () => {
            [key]:value
         })
      }
+     const onError=(key,value)=>
+     {
+        setFormErrorData(prev=>{
+            return {...prev,
+           [key]:value
+        }
+        })
+    }
+     const loginCall=(e)=>{
+        e.preventDefault();
+        if(!isvalidEmail(email)){
+            onError("emailError","Enter valid email")
+        }else{
+            onError("emailError","");
+        }
+        if(!password){
+            onError("passwordError","Password Cannot be empty");
+        }else{
+            onError("passwordError","");
+        }
+    
+    }   
+   
     return (
         <div className="signupcontainer-page">
           <div className="sign-up-contanier">
             <div className="signing-title">Login</div>
-            <form>
+            <form onSubmit={loginCall}>
             
                     <InputField
                     value={email}
                     onChange={(value)=>
                         onChange("email",value)
                         }
-                        label="Email"/>
+                        label="Email"
+                        error={emailError}
+                        />
                           <InputField
                     value={password}
                     onChange={(value)=>
@@ -37,6 +72,7 @@ const Login = () => {
                         }
                         label="Password"
                         type="password"
+                        error={passwordError}
                     />
                     
                 <button className="signing-button">Sign Up</button>

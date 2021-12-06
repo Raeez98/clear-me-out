@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import InputField from '../../Components/InputField';
+import { isvalidEmail } from '../../Utility/validation';
 import "./signup.css"
 
 const Signup = () => {
@@ -37,12 +38,22 @@ const Signup = () => {
      const signUpCall=(e)=>{
          e.preventDefault();
          if(!fullName){
-            onError("fullNameError","Name Miss Match");
+            onError("fullNameError","Provide Your Full Name");
         }else{
-            onError("fullNameError","");
+            if(fullName.length<=3){
+                onError("fullNameError","Enter valid Name");
+            }
+            else{
+                 onError("fullNameError","");
+            }
+        }
+        if(!password){
+            onError("passwordError","Password Cannot be empty");
+        }else{
+            onError("passwordError","");
         }
         if(!confirmPassword){
-            onError("confirmPasswordError","Confirm Your Password ");
+            onError("confirmPasswordError","Password Cannot be empty");
         }else{
             if(password !==confirmPassword){
                 onError("confirmPasswordError","Password Miss Match");
@@ -51,8 +62,15 @@ const Signup = () => {
                 onError("confirmPasswordError","");
             }
         }
-    }
         
+        if(!isvalidEmail(email)){
+            onError("emailError","Enter valid email")
+        }else{
+            onError("emailError","");
+        }
+        
+    }
+   
          
          
 
@@ -74,7 +92,9 @@ const Signup = () => {
                     onChange={(value)=>
                         onChange("email",value)
                         }
-                        label="Email"/>
+                        label="Email"
+                        error={emailError}
+                        />
                           <InputField
                     value={password}
                     onChange={(value)=>
@@ -82,6 +102,7 @@ const Signup = () => {
                         }
                         label="Password"
                         type="password"
+                        error={passwordError}
 
                         />
                           <InputField
