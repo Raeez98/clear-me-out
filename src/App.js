@@ -12,6 +12,7 @@ import Post from './Routes/Post';
 import Feedback from './Routes/Feedback';
 import Layout from "./Layout";
 import Demo from "./Learn/Demo";
+import Raeez from "./Raeez/Raeez";
 
 // Home page //Category Page //Question page
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="post" element={<Post/>}/>
         <Route path="feedback" element={<Feedback/>}/>
         <Route path="demo" element={<Demo/>}/>
+        <Route path="raeez" element={<Raeez/>}/>
 
         </Route>
     
