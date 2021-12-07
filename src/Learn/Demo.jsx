@@ -19,7 +19,7 @@ const Demo = () => {
             <div className="box">England</div>
             <div className="box">Paksitan</div>
         
-         </div>
+            </div>
             
         </div>
     )
