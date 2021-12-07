@@ -29,7 +29,7 @@ const[isFormSubmitted,setIsFormSubmitted]=useState(false)
      {
         setFormData(prev=>({
             ...prev,
-           [key]:value
+           [key]:value           //it is same as obj=[..a,["a"]:70]=obj=[...a,[key]:70]
         }))
         
      }
