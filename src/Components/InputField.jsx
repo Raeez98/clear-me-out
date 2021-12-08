@@ -17,7 +17,7 @@ const InputField = ({value,onChange,label,type="text",error,isFormSubmitted=fals
                     
                     /> 
                     <div className={`inputfield ${value? "filled-inputfield":""}`}>{label} 
-                    {/* //when we try to fill form labelled moves upward// */}
+                    {/* //when we try to fill form labelled moves upward to empty field// */}
                     </div> 
                     {error && (blured ||isFormSubmitted)&&<div className="text-field-error-text">
                         {error}
