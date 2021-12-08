@@ -1,0 +1,30 @@
+
+.date-section{
+display:flex;
+gap:5px;
+}
+.questions-view{
+    padding: 30px;
+}
+.answers1,.number1{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+.name{
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 25px;
+    padding-bottom: 10px;
+}
+.questions{
+    margin-left: 10px;
+    padding-left: 30px;
+}
+.para{
+    font-weight: bold;
+    font-size: 20px;
+}
+.view-section img{
+    width: 30px;
+    height: 20px;
+}

@@ -46,7 +46,7 @@ const[isFormSubmitted,setIsFormSubmitted]=useState(false)
         let  isValidform=true;
         
         if(!email){
-            onError("emailError","email cant be empty")
+            onError("emailError","Email cant be empty")
             isValidform=false;
         }
         else{

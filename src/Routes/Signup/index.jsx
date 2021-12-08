@@ -90,7 +90,7 @@ const[isFormSubmitted,setIsFormSubmitted]=useState(false)
      }
     const signUpCall=(e)=>{
          e.preventDefault();        // to avoid refresh loading page
-       setIsFormSubmitted(true);
+       setIsFormSubmitted(true);    //to show error
        if(formValidate()){
            console.log("signup success");
        }

@@ -13,6 +13,7 @@ import Feedback from './Routes/Feedback';
 import Layout from "./Layout";
 import Demo from "./Learn/Demo";
 import Raeez from "./Raeez/Raeez";
+import Answer from "./Routes/Answer"
 
 // Home page //Category Page //Question page
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="feedback" element={<Feedback/>}/>
         <Route path="demo" element={<Demo/>}/>
         <Route path="raeez" element={<Raeez/>}/>
+        <Route path="answer" element={<Answer/>}/>
 
         </Route>
     
