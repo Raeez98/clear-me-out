@@ -76,17 +76,20 @@ const[isFormSubmitted,setIsFormSubmitted]=useState(false)
                 onError("confirmPasswordError","");
             }
         }
-        
+            if(!email){
+                onError("emailError","email cant be empty")
+                isValidform=false;
+            }
+            else{
             if(!isvalidEmail(email)){
             onError("emailError","Enter valid email")
-            isValidform=false;
         }else{
             onError("emailError","");
-        }
+        }}
         return isValidform
      }
     const signUpCall=(e)=>{
-         e.preventDefault();
+         e.preventDefault();        // to avoid refresh loading page
        setIsFormSubmitted(true);
        if(formValidate()){
            console.log("signup success");
