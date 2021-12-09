@@ -14,6 +14,7 @@ import Layout from "./Layout";
 import Demo from "./Learn/Demo";
 import Raeez from "./Raeez/Raeez";
 import Answer from "./Routes/Answer"
+import Counter from "./Counter";
 
 // Home page //Category Page //Question page
 
@@ -27,7 +28,7 @@ import Answer from "./Routes/Answer"
 
 //Feedback
 
-function App() {
+function App({store}) {
   return (
      <Routes>
         <Route path="" element={<Layout/>}>
@@ -42,12 +43,9 @@ function App() {
         <Route path="demo" element={<Demo/>}/>
         <Route path="raeez" element={<Raeez/>}/>
         <Route path="answer" element={<Answer/>}/>
-
-        </Route>
-    
-        
-
-      </Routes>
+        <Route path="counter" element={<Counter store={store}/>}/>
+      </Route>
+    </Routes>
     
   );
 }
