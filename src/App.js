@@ -15,6 +15,7 @@ import Demo from "./Learn/Demo";
 import Raeez from "./Raeez/Raeez";
 import Answer from "./Routes/Answer"
 import Counter from "./Counter";
+import TodosRedux from "./TodosRedux"
 
 // Home page //Category Page //Question page
 
@@ -28,7 +29,7 @@ import Counter from "./Counter";
 
 //Feedback
 
-function App({store}) {
+function App() {
   return (
      <Routes>
         <Route path="" element={<Layout/>}>
@@ -43,7 +44,8 @@ function App({store}) {
         <Route path="demo" element={<Demo/>}/>
         <Route path="raeez" element={<Raeez/>}/>
         <Route path="answer" element={<Answer/>}/>
-        <Route path="counter" element={<Counter store={store}/>}/>
+        <Route path="counter" element={<Counter/>}/>
+        <Route path="todosredux" element={<TodosRedux/>}/>
       </Route>
     </Routes>
     

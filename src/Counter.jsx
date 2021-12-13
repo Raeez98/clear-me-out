@@ -1,86 +1,125 @@
-import React from 'react'
-import { createStore } from 'redux' 
-import "./counter.css"
-import { useState } from 'react'
+// import React from 'react'
+// import { createStore } from 'redux' 
+// import "./counter.css"
+// import { useState } from 'react'
 
+import {useSelector,useDispatch } from "react-redux"
 
 const Counter = ({store}) => {
-    const[input,setInput]=useState("");
+    const dispatch=useDispatch();
+    const count=useSelector(state=>state)
+        console.log(count);
+    
 
-            const addTodo=(value)=>{
-                store.dispatch(
-                    {
-                        type:"ADD_TODO",
-                        value
-                    })
-            }
-            const deleteTodo=(index)=>{
-            store.dispatch(
-                {
-                    type:"DELETE_TODO",
-                    index
-                })
-        }
-        const sortTodo=(value)=>{
-            store.dispatch(
-                {
-                    type:"SORT_TODO",
-                    value
-                })
-        }
+
+    // const[input,setInput]=useState("");
+
+    //         const addTodo=(value)=>{
+    //             store.dispatch(
+    //                 {
+    //                     type:"ADD_TODO",
+    //                     value
+    //                 })
+    //         }
+    //         const deleteTodo=(index)=>{
+    //         store.dispatch(
+    //             {
+    //                 type:"DELETE_TODO",
+    //                 index
+    //             })
+    //     }
+    //     const sortTodo=(value)=>{
+    //         store.dispatch(
+    //             {
+    //                 type:"SORT_TODO",
+    //                 value
+    //             })
+    // }
 
 
             return(
                 <div className="toDo">
-                    <div className="input-section">
-                        <input type="text"
-                        onChange={(e)=>{
-                            setInput(e.target.value)
+                    <button onClick={
+                        ()=>{
+                            dispatch({
+                                type:"Increment"
+                            })
+            
                         }
-                        }/>
-                        <button onClick={
-                            ()=>{
-                                addTodo(input);
-                            }
-                        }>Add</button>
-                    </div>
-                    <div className="todo-list">
-                        {
-                            store.getState().map((value,i)=><div key={i}>
-                                {value}
-                                <button onClick={()=>{
-                                   deleteTodo(i)
-                                }}>close</button></div>)
-                        }
+                    }
+                    >+</button>
+                    <div className="value">
+                        {count}
+                        {/* {store.getState()} */}
                     </div>
                     <button onClick={()=>{
-                        sortTodo(input);
+                                
+                                dispatch({
+                                    type:"Decrement"
+                                })
+                
+                    }}
+                    >-</button>
+                    </div>
 
-                    }
-                    }>SORT</button>
-                </div>
+
+
+
+        //             {/* <div className="input-section">
+        //                 <input type="text"
+        //                 onChange={(e)=>{
+        //                     setInput(e.target.value)
+        //                 }
+        //                 }/>
+        //                 <button onClick={
+        //                     ()=>{
+        //                         addTodo(input);
+        //                     }
+        //                 }>Add</button>
+        //             </div>
+        //             <div className="todo-list">
+        //                 {
+        //                     store.getState().map((value,i)=><div key={i}>
+        //                         {value}
+        //                         <button onClick={()=>{
+        //                            deleteTodo(i)
+        //                         }}>close</button></div>)
+        //                 }
+        //             </div>
+        //             <button onClick={()=>{
+        //                 sortTodo(input);
+
+        //             }
+        //             }>SORT</button>
+        //         </div> */}
     
-        // <div className="main_container_count">
-        //     <button onClick={()=>{
-        //         store.dispatch({
-        //             type:"Increment"
-        //         })
-        //     }}
-        //      className="increment">+</button>
+ 
+ 
+ 
+ 
+ 
+ 
+        // {/* // <div className="main_container_count">
+        // //     <button onClick={()=>{
+        // //         store.dispatch({
+        // //             type:"Increment"
+        // //         })
+        // //     }}
+        // //      className="increment">+</button>
 
-        //     <div className="counter-result">
-        //         {store.getState()}</div>
+        // //     <div className="counter-result">
+        // //         {store.getState()}</div>
 
-        //     <button onClick={()=>{
-        //         store.dispatch({
-        //             type:"Decrement"
-        //         })
-        //     }}
+        // //     <button onClick={()=>{
+        // //         store.dispatch({
+        // //             type:"Decrement"
+        // //         })
+        // //     }}
 
-        //     className="decrement">-</button>
+        // //     className="decrement">-</button>
             
-        // </div>
-        
+        // // </div>
+        //  */}
             
         
     
