@@ -3,17 +3,17 @@ import "./ask.css"
 
 const Ask = () => {
     return (
-<div className="category-container">
-          <div className="ask-body-container">
+    <div className="category-container">
+        <div className="ask-body-container">
             <h1>Ask Question</h1>
             <div className="drop-down-section">
               <div className="ask">Category</div>
            
-               <select className="drop-box">
+                <select className="drop-box">
                
                    <option>Electrical</option>
-               </select>
-               </div>
+                </select>
+            </div>
             
             <div className="text-question-box">
                    
@@ -23,13 +23,13 @@ const Ask = () => {
                 
     
             
-            <button className="ask-submit-button">Submit</button>
+                  <button className="ask-submit-button">Submit</button>
             </div>
             
             
 
-            </div>
         </div>
+    </div>
     )
 }
 

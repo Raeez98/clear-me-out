@@ -2,13 +2,42 @@ import React from 'react'
 import { useState } from 'react';
 import {useSelector,useDispatch } from "react-redux"
 import "./todosredux.css"
+import { useEffect } from 'react';
+import postData from './Services/postData';
 
 
 const TodosRedux = ({store}) => {
     const[input,setInput]=useState();
     const dispatch=useDispatch();
     const todoList=useSelector(state=>state)
+     useEffect(()=>{
+        //  let newTask={
+            
+        //         user: "raeez",
+        //         todos: [
+        //           {
+        //             "text": "This is a task11",
+        //             "status": true
+        //           },
+        //        {
+        //             text: "This is a task21",
+        //             status: true
+        //           }
+        //         ]
+        //       }
 
+        //     //    postData("http://192.168.1.42:8086/todos",newTask)        //user defined user 
+        //     //   .then(data=>console.log(data))
+         
+            fetch("http://192.168.1.42:8086/todos/raeez")
+           .then(response=>response.json())               
+           .then(data=>{
+           dispatch({
+               type:'create',
+               data:data[0].todos.map(value=>value.text)     //used to store in dom that given post request
+           })
+        })
+      },[])
     
     return (
         <div className="My-todo">
@@ -31,7 +60,7 @@ const TodosRedux = ({store}) => {
                     <div className="todo-list">
                         
                             {todoList.map((value,i)=>
-                                <div className="todo-results">
+                                <div key={i} className="todo-results">
                          {value}
                          <button className='todo-close-button' onClick={()=>{
                              dispatch({
