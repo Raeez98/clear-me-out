@@ -7,7 +7,7 @@ import {useSelector,useDispatch } from "react-redux"
 
 const Counter = ({store}) => {
     const dispatch=useDispatch();
-    const count=useSelector(state=>state)
+    const count=useSelector(state=>state.counter)
         console.log(count);
     
 

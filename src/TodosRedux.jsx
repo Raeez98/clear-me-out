@@ -9,14 +9,14 @@ import postData from './Services/postData';
 const TodosRedux = ({store}) => {
     const[input,setInput]=useState();
     const dispatch=useDispatch();
-    const todoList=useSelector(state=>state)
+    const todoList=useSelector(state=>state.todos);
      useEffect(()=>{
         //  let newTask={
             
         //         user: "raeez",
         //         todos: [
         //           {
-        //             "text": "This is a task11",
+        //             "text": "This is a task11",  // We created seperate function in postTodo file to use this function
         //             "status": true
         //           },
         //        {

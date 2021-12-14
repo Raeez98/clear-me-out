@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import InputField from '../../Components/InputField';
 import {isvalidEmail } from '../../Utility/validation';
 import "../Signup/signup.css"
+import { useDispatch } from 'react-redux';
 
 
 const Login = () => {
@@ -71,10 +72,15 @@ const[isFormSubmitted,setIsFormSubmitted]=useState(false)
         }
         return isValidform
     } 
+    const dispatch=useDispatch();
     const loginCall=(e)=>{
         e.preventDefault();
         setIsFormSubmitted(true);
         if(formValidate()){
+            dispatch({
+                type:"LoggedIn"
+
+            })
             console.log("login success");
         }
          

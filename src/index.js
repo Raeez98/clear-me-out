@@ -7,25 +7,66 @@ import {createStore} from "redux"
 import { Provider } from 'react-redux'
 import PostTodo from './Services/PostTodo';
 
-const reducer=(state=[],action)=>{   
-               //to return new function//cant mutate only we can do reset //state=0
-               let updatedList;
+
+const reducer=(state=
+  {
+  todos:[],
+  counter: 0,
+  isLoggedIn:false
+
+},
+  action)=>{   
+ //to return new function//cant mutate only we can do reset //state=0
+  let updatedList;
   switch (action.type) {
       case 'Add_Todo':                             //increment  state + 1;
-      updatedList=[...state,action.value]
+      updatedList=[...state.todos,action.value]
       PostTodo(updatedList)
-         return updatedList;                         
+         return{
+           ...state,
+        todos:updatedList
+         };
+                               
        case 'Delete_Todo':
-       updatedList=state.filter((_val,i)=> i!==action.index)
+       updatedList=state.todos.filter((_val,i)=> i!==action.index)
        PostTodo(updatedList)
-         return updatedList;   
+         return{
+          ...state,
+       todos:updatedList
+        };   
        //   return [...state.sort()];
        case 'create':
-         return action.data;
+         return {
+         ...state,
+         todos:action.data
+        };
+         case "Increment":
+           return{
+             ...state,
+             counter:state.counter+1
+           };
+           case "Decrement":
+             return{
+               ...state,
+               counter:state.counter-1
+             };
+      case "LoggedIn":
+               return{
+                 ...state,
+                 isLoggedIn:true
+               }
+        case "LogOut":
+          return{
+            ...state,
+            isLoggedIn:false
+          }      
+
+
+
       default:
         return state
 
-                                                        // case 'SORT_TODO':   
+                                                        
   }
 }
 const store=createStore(reducer);
