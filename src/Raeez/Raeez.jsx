@@ -3,9 +3,13 @@ import { useState } from 'react';
 import "./raeez.css"
 
 const Raeez = () => {
+
+  
+   
     const[input,setInput]=useState("");
-     const[result,setResult]=useState([])
+    const[result,setResult]=useState([])
     return (
+        
         <div className="my-container">
             <div className="my-sub-container">
             <input type="text" onChange={(e)=>
@@ -30,6 +34,7 @@ const Raeez = () => {
                          </div>)}    
              </div> 
         </div>
+       
         </div>
     )
 }

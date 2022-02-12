@@ -11,7 +11,8 @@ const TodosRedux = ({store}) => {
     const dispatch=useDispatch();
     const todoList=useSelector(state=>state.todos);
      useEffect(()=>{
-        //  let newTask={
+        //  let newTask={ 
+
             
         //         user: "raeez",
         //         todos: [
@@ -40,8 +41,8 @@ const TodosRedux = ({store}) => {
       },[])
     
     return (
-        <div className="My-todo">
-             <div className="input-main">
+         <div className="My-todo">
+            <div className="input-main">
                         <input type="text"
                        onChange={(e)=>{
                            setInput(e.target.value)
@@ -71,7 +72,7 @@ const TodosRedux = ({store}) => {
                         }>Close</button>
                              
                              </div>)}
-                         </div>
+            </div>
         </div>
                                  
         
