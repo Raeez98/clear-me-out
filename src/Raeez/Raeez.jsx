@@ -5,7 +5,7 @@ import "./raeez.css"
 const Raeez = () => {
 
   
-   
+ 
     const[input,setInput]=useState("");
     const[result,setResult]=useState([])
     return (

@@ -15,6 +15,7 @@ import Demo from "./Learn/Demo";
 import Raeez from "./Raeez/Raeez";
 import Answer from "./Routes/Answer"
 import Counter from "./Counter";
+import Test from "./Raeez1"
 import TodosRedux from "./TodosRedux"
 
 // Home page //Category Page //Question page
@@ -45,6 +46,8 @@ function App() {
         <Route path="raeez" element={<Raeez/>}/>
         <Route path="answer" element={<Answer/>}/>
         <Route path="counter" element={<Counter/>}/>
+        <Route path="counter" element={<Counter/>}/>
+        <Route path="test" element={<Test/>}/>
         <Route path="todosredux" element={<TodosRedux/>}/>
       </Route>
     </Routes>
